@@ -44,16 +44,30 @@ section {
     background: #A7E9AF;
     border: 1px solid #99CEA8;
     border-radius: 5px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .carta img {
     width: 100px;
     height: 100px;
 
+}
+
+.frente {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verso {
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 350px) {
@@ -71,4 +85,8 @@ section {
 
         margin: 0 auto;
     }
+}
+
+.hidden {
+    display: none;
 }
