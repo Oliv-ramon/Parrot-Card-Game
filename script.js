@@ -30,7 +30,7 @@ function botaAsCartas(quantidade) {
 }
 
 async function giraCarta(carta) {
-    carta.classList.add("virada")
+    carta.classList.add("virada");
     let cartaVirada = document.querySelectorAll(".virada .desvirada");
     if (cartaVirada.length === 2) {
         if (cartaVirada[0].parentNode.classList[1] === cartaVirada[1].parentNode.classList[1]) {
@@ -38,14 +38,23 @@ async function giraCarta(carta) {
             cartaVirada[1].classList.remove("desvirada");
             cartaVirada = [];
             console.log(cartaVirada)
+            jogadas += 2;
         } else {
             await delay(1)
             cartaVirada[0].parentNode.classList.remove("virada")
             cartaVirada[1].parentNode.classList.remove("virada")
             cartaVirada = []
+            jogadas += 2;
             console.log(cartaVirada)
         }
     }
+    let cartasViradas =  document.querySelectorAll(".virada");
+    if (cartasViradas.length === quantidadeDeCartas){
+        await delay(1.0000001)
+        alert(`"Você ganhou em ${jogadas} jogadas!"`)
+    }
+
+    console.log(jogadas)
 }
 
 function comparador() { 
@@ -62,7 +71,7 @@ let quantidadeDeCartas = parseInt(prompt("Com quantas cartas quer jogar?"));
 
 let listaDeCartas = [];
 
-
+let jogadas = 0;
 
 perguntaQuantasCartas();
 
