@@ -8,11 +8,11 @@ function perguntaQuantasCartas() {
 function adicionaCartasNaLista(quantidade) {
     for (let i = 1; i <= quantidade/2; i++) {
         let carta = `
-            <div class="carta par${i}">
-                <div class="frente">
+            <div onclick="giraCarta(this)" class="carta par${i}">
+                <div class="frente face desvirada">
                     <img src="arquivos/front.png" alt="frente da carta">
                 </div>
-                <div class="verso hidden">
+                <div class="verso face">
                     <img src="arquivos/${i}.gif" alt="gif animado">
                 </div>
             </div>
@@ -29,13 +29,40 @@ function botaAsCartas(quantidade) {
     }
 }
 
+async function giraCarta(carta) {
+    carta.classList.add("virada")
+    let cartaVirada = document.querySelectorAll(".virada .desvirada");
+    if (cartaVirada.length === 2) {
+        if (cartaVirada[0].parentNode.classList[1] === cartaVirada[1].parentNode.classList[1]) {
+            cartaVirada[0].classList.remove("desvirada");
+            cartaVirada[1].classList.remove("desvirada");
+            cartaVirada = [];
+            console.log(cartaVirada)
+        } else {
+            await delay(1)
+            cartaVirada[0].parentNode.classList.remove("virada")
+            cartaVirada[1].parentNode.classList.remove("virada")
+            cartaVirada = []
+            console.log(cartaVirada)
+        }
+    }
+}
+
 function comparador() { 
 	return Math.random() - 0.5; 
+}
+
+function delay(n){
+    return new Promise(function(resolve){
+        setTimeout(resolve,n*1000);
+    });
 }
 
 let quantidadeDeCartas = parseInt(prompt("Com quantas cartas quer jogar?"));
 
 let listaDeCartas = [];
+
+
 
 perguntaQuantasCartas();
 
@@ -45,4 +72,5 @@ listaDeCartas.sort(comparador);
 console.log(listaDeCartas)
 
 botaAsCartas(quantidadeDeCartas);
+
 
