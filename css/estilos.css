@@ -1,105 +1,154 @@
 * {
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     background-color: #eef9bf;
-}
-
-header {
+    position: relative;
+  }
+  
+  header {
     width: 100%;
     height: 143px;
-
+  
     display: flex;
     justify-content: center;
     align-items: center;
-
-}
-
-h1 {
+  }
+  
+  h1 {
     font-family: Roboto;
     font-weight: 700;
     font-size: 56px;
     line-height: 66px;
     letter-spacing: -0.004em;
-
-    color: #75B79E;
-}
-
-section {
+  
+    color: #75b79e;
+  }
+  
+  main {
     width: 80%;
     margin: 0 auto;
     margin-top: 7px;
-
+  
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 34px;
-
-}
-.carta {
+  }
+  .carta {
     width: 117px;
     height: 146px;
-
-    background: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-
+  
     position: relative;
-}
-
-.carta img {
+  }
+  
+  .carta img {
     width: 100px;
     height: 100px;
-
-}
-
-.face {
+  }
+  
+  .face {
     width: 100%;
     height: 100%;
-
+  
     display: flex;
     justify-content: center;
     align-items: center;
-
+  
+    background: #a7e9af;
+    border: 1px solid #99cea8;
+    border-radius: 5px;
+  
     backface-visibility: hidden;
-
+  
     position: absolute;
     top: 0;
     left: 0;
-    transition: all .5s;
+    transition: all 0.5s;
     transform-style: preserve-3d;
-}
-
-.verso {
+  }
+  
+  .verso {
     transform: rotateY(180deg);
-}
-
-.carta.virada .verso {
+  }
+  
+  .carta.virada .verso {
     transform: rotateY(0deg);
-}
-
-.carta.virada .frente {
+  }
+  
+  .carta.virada .frente {
     transform: rotateY(-180deg);
-}
-
-@media (max-width: 350px) {
-    h1  {
-        font-size: 36px;
-        line-height: 42px;
-        text-align: center;
-
+  }
+  
+  .relogio {
+    width: 7%;
+    height: 30px;
+    border-radius: 5px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background-color: rgba(252, 197, 48, 0.61);
+  
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+  
+  .tempo {
+    text-align: center;
+  }
+  
+  @media (max-width: 590px) and (min-width: 350px) {
+    header {
+      margin-top: 7px;
     }
-
-    section {
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-
-        margin: 0 auto;
+  
+    h1 {
+      font-size: 46px;
+      line-height: 54px;
+      text-align: center;
     }
-}
-
-.hidden {
+  
+    main {
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+  
+      margin: 0 auto;
+    }
+    .relogio {
+      width: 12%;
+    }
+  }
+  
+  .hidden {
     display: none;
-}
+  }
+
+  @media (max-width: 350px) {
+    h1 {
+      font-size: 36px;
+      line-height: 42px;
+      text-align: center;
+    }
+  
+    main {
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+  
+      margin: 0 auto;
+    }
+    .relogio {
+      width: 15%;
+    }
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
